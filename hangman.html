@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .st0 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: none;
+        stroke: #000000;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+      .st1 {
+        fill: none;
+        stroke: #000000;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+      .contain{
+        width: 900px;
+        margin: auto;
+        padding: 30px 0;
+        position: relative;
+      }
+      .contain .resWrap{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,.8);
+        display: none;
+      }
+      .resWrap h1{
+        font-size: 56px;
+        color: white;
+      }
+      .resWrap button{
+        width: 150px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        border: 1px solid white;
+        background-color: black;
+        color: white;
+      }
+      .resWrap button:active{
+        background-color: gray;
+      }
+      .resWrap span{
+        font-size: 16px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-transform: uppercase;
+      }
+      .wrap {
+        width: 600px;
+        display: flex;
+        margin: auto;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .wrap svg {
+        width: 200px;
+      }
+      svg .head {
+        stroke-dasharray: 155;
+        stroke-dashoffset: -155;
+        /* animation: draw 1s forwards; */
+      }
+      svg .body {
+        stroke-dasharray: 62;
+        stroke-dashoffset: -62;
+      }
+      svg .leftArm {
+        stroke-dasharray: 58;
+        stroke-dashoffset: -58;
+      }
+      svg .rightArm {
+        stroke-dasharray: 58;
+        stroke-dashoffset: -58;
+      }
+      svg .leftLeg {
+        stroke-dasharray: 58;
+        stroke-dashoffset: -58;
+      }
+      svg .rightLeg {
+        stroke-dasharray: 58;
+        stroke-dashoffset: -58;
+      }
+
+      @keyframes draw {
+        100%{
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .wrap .box {
+        width: 350px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box .one {
+        width: 40px;
+        height: 40px;
+        border-bottom: 2px solid black;
+        margin: 0 5px;
+        text-align: center;
+        line-height: 40px;
+        text-transform: uppercase;
+        font-size: 24px;
+      }
+      .keyboard {
+        width: 520px;
+        margin: auto;
+        margin-top: 50px;
+      }
+      .keyboard ul {
+        width: 100%;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .keyboard li {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background: darkgray;
+        margin: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .keyboard li:active {
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="resWrap">
+        <h1></h1>
+        <span></span>
+        <button class="reset">다시 시도하기</button>
+      </div>
+      <div class="wrap">
+        <svg x="0px" y="0px" viewBox="0 0 300 300">
+          <path class="st0 hang head" d="M177,77c13.6,0,24.7,11.1,24.7,24.7c0,13.7-11.1,24.8-24.8,24.8s-24.8-11.1-24.8-24.8S163.3,77,177,77"/>
+          <line class="st1 hang body" x1="176.5" y1="188.5" x2="176.5" y2="126.5" />
+          <line class="st1 hang leftArm" x1="145.5" y1="175" x2="176.5" y2="126.5" />
+          <line class="st1 hang rightArm" x1="207.5" y1="175" x2="176.5" y2="126.5" />
+          <line class="st1 hang leftLeg" x1="162.5" y1="244.5" x2="176.5" y2="188.5" />
+          <line class="st1 hang rightLeg" x1="190.5" y1="244.5" x2="176.5" y2="188.5"/>
+          <line class="st1" x1="103.5" y1="45.5" x2="176.5" y2="45.5" />
+          <line class="st1" x1="176.5" y1="45.5" x2="176.5" y2="76.5" />
+          <line class="st1" x1="103.5" y1="45.5" x2="103.5" y2="266.5" />
+          <line class="st1" x1="80.5" y1="266.5" x2="126.5" y2="266.5" />
+        </svg>
+        <div class="box"></div>
+      </div>
+      <div class="keyboard">
+        <ul>
+          <li>q</li>
+          <li>w</li>
+          <li>e</li>
+          <li>r</li>
+          <li>t</li>
+          <li>y</li>
+          <li>u</li>
+          <li>i</li>
+          <li>o</li>
+          <li>p</li>
+        </ul>
+        <ul>
+          <li>a</li>
+          <li>s</li>
+          <li>d</li>
+          <li>f</li>
+          <li>g</li>
+          <li>h</li>
+          <li>j</li>
+          <li>k</li>
+          <li>l</li>
+        </ul>
+        <ul>
+          <li>z</li>
+          <li>x</li>
+          <li>c</li>
+          <li>v</li>
+          <li>b</li>
+          <li>n</li>
+          <li>m</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const words = ["tree","ghost","planet","castle","garden","silver","dream","flame","market","window","storm","bridge","forest","shadow","dragon","winter","breeze","candle","spirit","desert","hunter","lucky","mirror","puzzle","rocket","silent","unicorn","village","whisper","jungle","prince","anchor","sword","pirate","magic","island","wizard","galaxy","voyage"];
+      console.log(words);
+
+      wordInit(words);
+
+      let answer;
+      answer = wordInit(words);
+
+      function wordInit(w){
+        let word = w[Math.floor(Math.random() * w.length)];
+
+        return word;
+      }
+
+      console.log(answer);
+
+      let test = [];
+      for(var i = 0; i < answer.length; i++){
+        test[i] = "";
+
+        var p = document.createElement('p');
+        p.appendChild(document.createTextNode(test[i]));
+        p.classList.add('one');
+        document.querySelector('.box').appendChild(p);
+      }
+
+      function letters(key){
+
+      }
+
+      for (var i = 0; i < document.querySelectorAll(".keyboard li").length; i++) {
+        document.querySelectorAll(".keyboard li")[i].addEventListener("click", function () {
+          letters(this.textContent);
+          this.style.background = "rgb(110,110,110)";
+          this.style.color = "gray";
+        });
+      }
+
+      var wrong = 0;
+
+      function letters(key){
+        if(!answer.includes(key)){
+          document.querySelectorAll('.hang')[wrong].style.animation = "draw 1s forwards";
+          wrong++;
+        }else{
+          for(let i = 0; i < answer.length; i++){
+            if(answer[i] == key){
+              test[i] = answer[i];
+              document.querySelectorAll('.one')[i].textContent = test[i];
+            };
+          }
+        }
+        if(!test.includes("")){
+          document.querySelector('.resWrap h1').textContent = "성공!";
+          document.querySelector('.resWrap').style.display = "flex";
+        }else if(wrong == 6){
+          document.querySelector('.resWrap h1').textContent = "실패!";
+          document.querySelector('.resWrap span').textContent = `정답: ${answer}`;
+          document.querySelector('.resWrap').style.display = "flex";
+        }
+      }
+
+      document.querySelector('.reset').addEventListener('click', ()=>{
+        words.splice(words.indexOf(answer), 1);
+
+        document.querySelector('.resWrap').style.display = 'none';
+        for(var i = 0; i < document.querySelectorAll('.hang').length; i++){
+          document.querySelectorAll('.hang')[i].style.animation = "none";
+        }
+        for(var i = 0; i < document.querySelectorAll('.keyboard li').length; i++){
+          document.querySelectorAll('.keyboard li')[i].style.color = "white";
+          document.querySelectorAll('.keyboard li')[i].style.background = "darkgray";
+        }
+
+        document.querySelector('.resWrap span').textContent = "";
+        document.querySelector('.resWrap h1').textContent = "";
+
+        document.querySelector('.box').innerHTML = "";
+
+        wordInit(words);
+        answer = wordInit(words);
+
+        wrong = 0;
+
+        test = [];
+        for(var i = 0; i < answer.length; i++){
+          test[i] = "";
+
+          var p = document.createElement('p');
+          p.appendChild(document.createTextNode(test[i]));
+          p.classList.add('one');
+          document.querySelector('.box').appendChild(p);
+        }
+
+        console.log(answer);
+      })
+    </script>
+  </body>
+</html>
