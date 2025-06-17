@@ -109,14 +109,53 @@ $('header span').on('click', function(){
     }, 500);
 });
 
+var workspop = [
+    {
+        title: '서울시 문화공간 한눈에',
+        font: '"Jua", sans-serif',
+        fontSize: '48px',
+        img: './img/works1.jpg',
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eligendi provident veritatis quisquam velit quae ut quis, nihil officiis cumque, rerum non veniam assumenda! Quos eius alias similique deserunt! Tempore.',
+        link: 'https://oneweon.github.io/works/culturalspace.html'
+    }
+];
+
+
 $('.works li').on('click', function(){
     $('.popbg').show();
     $('.pop').show();
+    let i = $(this).index();
+    if($(this).data('sw') == 'y'){
+        $('.pop .content').css('display', 'none');
+        $('.pop .content2').css('display', 'flex');
+        contentFill(i)
+    }else{
+        $('.pop .content').css('display', 'flex');
+        $('.pop .content2').css('display', 'none');
+    }
 });
+
+function contentFill(i){
+    $('.content2').append('<div class="introbox">');
+
+    // $('.content2 .introbox').append('<div class="img">');
+    // $('.introbox .img').append(`<img src="${workspop[i].img}" alt="img">`);
+    
+    $('.content2 .introbox').append('<div class="text">');
+    $('.introbox .text').append('<h2>');
+    $('.text h2').text(workspop[i].title);
+    $('.text h2').css('font-family', workspop[i].font).css('font-size', workspop[i].fontSize);
+    
+    $('.introbox .text').append('<p>');
+    $('.text p').text(workspop[i].content);
+
+    $('.introbox .text').append(`<a class="move" href="${workspop[i].link}" target="_blank">`);
+}
 
 $('.close, .popbg').on('click', function(){
     $('.popbg').hide();
     $('.pop').hide();
+    $('.content2 .introbox').remove();
 });
 
 letterMove();
@@ -145,19 +184,28 @@ for(let i = 0; i < str.length; i++){
     $('.email h3').append(span);
 }
 
-let cnt = 0;
-setInterval(() => {
+let mailMove = setInterval(() => {
     $('.contact svg').animate({'scale':'1.3'}, ()=>{
         $('.contact svg').animate({'scale':'1'});
     });
 }, 1000);
-setInterval(() => {
-    if(cnt < str.length){
-        $('.email span').eq(cnt).animate({'top':'-20px'}, 60, ()=>{
-            $('.email span').animate({'top':'0px'}, 40);
+let mailMove2 = setInterval(() => {
+    $('.contact .movebox').animate({'opacity':'1'}, ()=>{
+        $('.contact .movebox').animate({'opacity':'0'});
+    });
+}, 1000);
+
+$('.contact svg').on('click', ()=>{
+    clearInterval(mailMove);
+    clearInterval(mailMove2);
+    $('.contact svg').animate({'scale': 1})
+    $('.contact .movebox').animate({'opacity': 0})
+    $('.email span').each(function(i){
+        $(this).delay(i*80).animate({top:'0px', opacity: 1}, 800, 'easeOutBounce', function(){
+            $(this).delay(i*40).animate({opacity: 0}, function(){
+                $(this).delay(i*40).animate({opacity: 1});
+            });
         });
-        cnt++;
-    }else{
-        cnt=0;
-    }
-}, 110);
+    });
+});
+
