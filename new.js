@@ -117,7 +117,23 @@ var workspop = [
         img: './img/works1.jpg',
         content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eligendi provident veritatis quisquam velit quae ut quis, nihil officiis cumque, rerum non veniam assumenda! Quos eius alias similique deserunt! Tempore.',
         link: 'https://oneweon.github.io/works/culturalspace.html'
-    }
+    },
+    {
+        title: '상품별 매출현황 그래프',
+        font: '"Do Hyeon", sans-serif',
+        fontSize: '48px',
+        img: './img/works1.jpg',
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eligendi provident veritatis quisquam velit quae ut quis, nihil officiis cumque, rerum non veniam assumenda! Quos eius alias similique deserunt! Tempore.',
+        link: 'https://oneweon.github.io/works/chart.html'
+    },
+    {
+        title: '문화센터 여름학기 수강 신청',
+        font: '"NanumGothic"',
+        fontSize: '36px',
+        img: './img/works1.jpg',
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eligendi provident veritatis quisquam velit quae ut quis, nihil officiis cumque, rerum non veniam assumenda! Quos eius alias similique deserunt! Tempore.',
+        link: 'https://oneweon.github.io/works/summer.html'
+    },
 ];
 
 
